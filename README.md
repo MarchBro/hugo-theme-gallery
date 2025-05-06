@@ -1,6 +1,6 @@
 # Тема Hugo Галерея 
 
-Простая и коассная тема hugo
+Простая и классная тема hugo
 
 - [Demo](https://nicokaiser.github.io/hugo-theme-gallery/)
 - [Example site source](https://github.com/nicokaiser/hugo-theme-gallery/tree/main/exampleSite)
@@ -11,27 +11,29 @@
 
 ---
 
-## Features
+## Характеристики 
 
-- Responsive design
-- Dark color scheme (can be set per page)
-- Private albums
-- Justified album views with [Flickr's Justified Layout](https://github.com/flickr/justified-layout)
-- Lightbox with [PhotoSwipe](https://photoswipe.com/)
-- SEO with Open Graph tags
-- Automatic (or manual) selection of feature/cover images
+- Адаптивный дизайн
+- Темная цветовая гамма (может быть установлена для каждой страницы)
+- Личные альбомы
+- Выравнивание альбомов по ширине с помощью [Flickr's](https://github.com/flickr/justified-layout)
+- Лайтбокс с фотосвайпом [PhotoSwipe](https://photoswipe.com/)
+- SEO с тегами Open Graph
+- Автоматический (или ручной) выбор художественных изображений / обложек
+  
+Важное примечание: не пытайтесь использовать изображения WebP. В реализации WebP на Golang, используемой в Hugo, есть ошибка, которая приводит к неправильным уровням изображения (тусклым изображениям) при изменении размера. Подробнее см. [nicokaiser/hugo-theme-gallery#102](https://github.com/nicokaiser/hugo-theme-gallery/issues/102)
 
-**Important note: do not try to use WebP images.** The golang WebP implementation used in Hugo has a bug which leads to wrong image levels (dull looking images) upon resize. See [nicokaiser/hugo-theme-gallery#102](https://github.com/nicokaiser/hugo-theme-gallery/issues/102) for more details.
+## Установка 
 
-## Installation
+Для этой темы требуется Hugo Extended >= 0.123.0. Зависимости включены в комплект, поэтому Node.js/NPM и PostCSS не требуются.
 
-This theme requires Hugo Extended >= 0.123.0. Dependencies are bundled, so no Node.js/NPM and PostCSS is needed.
+### Как модуль Hugo
 
-### As a Hugo Module
+Требуется установленный двоичный файл Go.
 
-Requires the Go binary installed.
+hugo mod 
 
-```sh
+```sh 
 hugo mod init github.com/<your_user>/<your_project>
 ```
 
