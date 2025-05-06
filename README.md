@@ -58,7 +58,7 @@ git submodule add --depth=1 https://github.com/nicokaiser/hugo-theme-gallery.git
 ```plain
 content/
 ├── _index.md
-├── about.md             <--   не указан в списке альбомов
+├── about.md     <--   не указан в списке альбомов
 ├── animals/
 │   ├── _index.md
 │   ├── cats/
@@ -70,12 +70,12 @@ content/
 │   |   ├── dog1.jpg     <-- обложка альбома
 │   |   └── dog2.jpg
 │   └── feature.jpg
-├── bridge.jpg           <-- миниатюра сайта (OpenGraph, etc.)
+├── bridge.jpg        <-- миниатюра сайта (OpenGraph, etc.)
 └── nature/
-    ├── index.md         <-- содержит `cover: true` for `tree.jpg`
+    ├── index.md      <-- содержит `cover: true` for `tree.jpg`
     ├── nature1.jpg
     ├── nature2.jpg
-    └── tree.jpg         <-- миниатюра альбома
+    └── tree.jpg      <-- миниатюра альбома
 ```
 
 - `/about.md` этот пакет страниц не содержит мзображений и не отображается в списке альбомов
@@ -97,9 +97,9 @@ content/
 - `params.sort_order` -- порядок сортировки. Значение по умолчанию `asc`.
 - `params.theme` -- цветовая тема для этой страницы. По умолчанию используется значение `defaultTheme` из конфигурации.  
 
-### Album Cover
+### Обложка альбома
 
-By default, the cover image of an album is the first image in its folder. To select a specific image (which must be part of the album), use the `cover` resource parameter in the front matter:
+По умолчанию обложкой альбома является первое изображение в его папке. Чтобы выбрать конкретное изображение (которое должно быть частью альбома), используйте параметр `cover` ниже:
 
 ```plain
 ---
@@ -111,7 +111,7 @@ resources:
 ---
 ```
 
-You can hide images from the gallery and use them only as cover image:
+Вы можете скрыть изображения из галереи и использовать их только в качестве обложки:
 
 ```plain
 ---
@@ -126,15 +126,15 @@ resources:
 
 ### Image Metadata
 
-Image titles for the lightbox view are either taken from the `ImageDescription` EXIF tag, or the `title` in the resource metadata.
+Названия изображений для просмотра в лайтбоксе берутся либо из тега `ImageDescription` EXIF tag, либо `title` в метаданных ресурса.
 
-EXIF tags can be written using software like Adobe Lightroom or by using command line tools like exiftool:
+Теги EXIF можно создавать с помощью таких программ, как Adobe Lightroom, или с помощью инструментов командной строки, таких как exiftool:
 
 ```sh
-exiftool -ImageDescription="A closeup of a gray cat's face" cat-4.jpg
+exiftool -ImageDescription="Крупный план морды серой кошки" cat-4.jpg
 ```
 
-Alternatively, the image title can be set in the front matter:
+В качестве альтернативы, заголовок изображения может быть установлен на обложке
 
 ```plain
 ---
@@ -150,7 +150,7 @@ resources:
 ---
 ```
 
-This also enables custom ordering:
+Так же доступна произвольная кастомизация:
 
 ```plain
 ---
@@ -165,10 +165,9 @@ resources:
 ---
 ```
 
-### Categories
+### Категории 
 
-If you use categories in your albums, the homepage displays a list of categories.
-Make sure `term` is not included in `disabledKinds` in the site config.
+Если вы используете категории в своих альбомах, на главной странице отображается список категорий. Убедитесь, что `term` не включена в `disabledKinds` в конфигурации сайта.
 
 content/dogs/index.md:
 
@@ -184,7 +183,7 @@ resources:
 ---
 ```
 
-Categories can also have custom titles and descriptions (by default, the "animals" category will have "Animals" as title and no description). Just create a `content/categories/<category>/_index.md`:
+Категории также могут иметь собственные заголовки и описания (по умолчанию категория «животные» будет иметь заголовок «Животные» и не будет описания). Просто создайте `content/categories/<category>/_index.md`:
 
 content/categories/animals/\_index.md:
 
@@ -195,19 +194,19 @@ description: This is the description text of the "animals" category.
 ---
 ```
 
-#### List of Categories
+#### Список категорий 
 
-To enable a list of categories, each category must at least have an image in the `content/categores/<category>/` folder. Also, `taxonomy` must _not_ be included in the `disableKinds` in the site config.
+Чтобы включить список категорий, у каждой категории должно быть, по крайней мере, изображение в папке `content/categores/<category>/` . Кроме того, `taxonomy`  быть включен в `disableKinds` конфигурации сайта.
 
-Then, `/categories` displays a list of categories, with their cover image.
+Затем, `/categories` отобразится список категорий с изображением их обложки.
 
-#### Other Taxonomies
+#### Другие Таксономии
 
-You can also use other taxonomies like `series`. Note that only `categories` and `tags` are enabled by Hugo's default settings. Using `series` as additional taxonomy is left as an exercise for the reader.
+Вы также можете использовать другие таксономии, например `series`. Обратите внимание, что только  `categories` и `tags` включены в настройках Hugo по умолчанию. Использование `series` в качестве дополнительной таксономии остаётся на усмотрение пользователя.
 
-### Featured Content on the Homepage
+### Рекомендуемый контент на главной странице
 
-Albums (and als taxonomy pages like categories) can be marked as "featured":
+Альбомы (а также страницы таксономии, такие как категории) могут быть отмечены как «избранные»:
 
 ```plain
 ---
@@ -217,24 +216,24 @@ params:
 ---
 ```
 
-When used in combination with `private: true` this album is only shown as featured album on the homepage, and not in any album list.
+При использовании в сочетании с `private: true`  этот альбом отображается только как избранный альбом на главной странице, а не в каком-либо списке альбомов.
 
-Note that also categories or any other taxonomy term can be marked as featured, so you can feature a whole category, series, etc.
+Обратите внимание, что категории или любой другой таксономический термин также могут быть отмечены как избранные, поэтому вы можете выделить целую category, series, etc.
 
-By default, the homepage displays
+По умолчанию на главной странице отображается
 
-- the site title,
-- links to all categories (if categories are enabled and used)
-- the most recent featured content (even if private)
-- all non-private top-level albums
+- название сайта,
+- ссылки на все категории (если категории включены и используются)
+- самый последний показанный контент (даже если он приватный)
+- все непубличные альбомы высшего уровня
 
-This can easily be adjusted by using a local version of `layouts/_default/home.html`.
+Это можно легко настроить, используя `layouts/_default/home.html`.
 
-### Related Content
+### Связанный Контент
 
-If related content is available for your site (e.g. when keywords or tags are used), related albums are shown below each gallery. Read more about this in the [Hugo Docs](https://gohugo.io/content-management/related/#configure-related-content).
+Если на вашем сайте доступен связанный контент (например, при использовании ключевых слов или тегов), под каждой галереей отображаются связанные альбомы. Подробнее об этом читайте в [Hugo Docs](https://gohugo.io/content-management/related/#configure-related-content).
 
-Here is an example section in `config/_default/hugo.toml` to enable related content:
+Вот пример раздела в `config/_default/hugo.toml` для включения связанного контента:
 
 ```toml
 [related]
@@ -259,9 +258,9 @@ Here is an example section in `config/_default/hugo.toml` to enable related cont
     weight = 50
 ```
 
-### Social Icons
+### Иконки соцсетей 
 
-Use the `socialIcons` configuration key to add social icons on the bottom of each page:
+Используйте ключ конфигурации `socialIcons` для добавления значков социальных сетей в нижней части каждой страницы:
 
 ```toml
 [params]
@@ -275,9 +274,9 @@ Use the `socialIcons` configuration key to add social icons on the bottom of eac
     linkedin = "https://linkedin.com/"
 ```
 
-### Exclude original photos
+### Исключить исходные изображения 
 
-To exclude the original photos from the published site, and to disable the "Download" button, you can use the `build.publishResources` configuration option. Either add it to a specific album, or use `cascade` to omit the originals from all sub-albums. With `publishResources: false` only the resized images (without any metadata) are included in the published site, which can save quite some disk space.
+Чтобы исключить исходные фотографии из опубликованного сайта и отключить кнопку «Скачать», вы можете использовать параметр конфигурации `build.publishResources` Либо добавьте его в конкретный альбом, либо используйте  `cascade` чтобы исключить исходные изображения из всех под-альбомов. При использовании `publishResources: false` на опубликованный сайт будут включены только изображения с изменённым размером (без каких-либо метаданных), что позволит сэкономить место на диске.
 
 ```toml
 cascade:
@@ -285,14 +284,14 @@ cascade:
     publishResources: false
 ```
 
-### Custom CSS
+### Пользовательский CSS
 
-CSS is generated with Hugo Pipes, so you can add additional CSS in `assets/css/custom.css` (see example in `exampleSite`).
+CSS генерируется с помощью Hugo Pipes, поэтому вы можете добавить дополнительный CSS в `assets/css/custom.css` (см. пример в `exampleSite`).
 
-### Custom JavaScript
+### Пользовательский JavaScript
 
-You can add additional JavaScript in `assets/js/custom.js`.
+Вы можете добавить дополнительный JavaScript в `assets/js/custom.js`.
 
-## Author
+## Автор
 
 - [Nico Kaiser](https://kaiser.me/)
