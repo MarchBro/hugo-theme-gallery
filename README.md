@@ -37,7 +37,7 @@ hugo mod
 hugo mod init github.com/<your_user>/<your_project>
 ```
 
-Then add the theme to your `hugo.toml`:
+Затем добавьте тему в свой `hugo.toml`:
 
 ```toml
 [module]
@@ -45,57 +45,57 @@ Then add the theme to your `hugo.toml`:
     path = "github.com/nicokaiser/hugo-theme-gallery/v4"
 ```
 
-### As Git Submodule
+### Как субмодуль Git
 
 ```sh
 git submodule add --depth=1 https://github.com/nicokaiser/hugo-theme-gallery.git themes/gallery
 ```
 
-## Usage
+## Использование
 
-Page bundles which contain at least one image are listed as album or gallery:
+Пакеты страниц, содержащие хотя бы одно изображение, перечислены как альбом или галерея:
 
 ```plain
 content/
 ├── _index.md
-├── about.md             <-- not listed in album list
+├── about.md             <--   не указан в списке альбомов
 ├── animals/
 │   ├── _index.md
 │   ├── cats/
 │   |   ├── index.md
 │   |   ├── cat1.jpg
-│   |   └── feature.jpg  <-- album cover
+│   |   └── feature.jpg  <-- обложка альбома
 │   ├── dogs/
 │   |   ├── index.md
-│   |   ├── dog1.jpg     <-- album cover
+│   |   ├── dog1.jpg     <-- обложка альбома
 │   |   └── dog2.jpg
 │   └── feature.jpg
-├── bridge.jpg           <-- site thumbnail (OpenGraph, etc.)
+├── bridge.jpg           <-- миниатюра сайта (OpenGraph, etc.)
 └── nature/
-    ├── index.md         <-- contains `cover: true` for `tree.jpg`
+    ├── index.md         <-- содержит `cover: true` for `tree.jpg`
     ├── nature1.jpg
     ├── nature2.jpg
-    └── tree.jpg         <-- album thumbnail
+    └── tree.jpg         <-- миниатюра альбома
 ```
 
-- `/about.md` is not a Page Bundle and does not have image resources. It is not displayed in the album list.
-- `/nature` is a Leaf Bundle (has `index.md` and no children) => displayed as gallery (`single` layout).
-- `/animals` is a Branch Bundle (has `_index.md` and has children) => displayed as album list (`list` layout).
-- The image resource with `*feature*` in its name or the first image found is used as thumbnail image for album lists.
-- Albums without an image are not shown.
+- `/about.md` этот пакет страниц не содержит мзображений и не отображается в списке альбомов
+- `/nature` этот пакет имеет `index.md` ) => отображается как галерея(`single` макет).
+- `/animals` это пакет "ветвь" имеет `_index.md` и дочерние элементы) => отображается в виде списка альбомов (`list` макет).
+- В качестве миниатюры для списков альбомов используется ресурс изображения с *feature* в названии или первое найденное изображение.
+- Альбомы без изображения не отображаются
+  
+### Фронт мастер 
 
-### Front matter
-
-- `title` -- title of the album, shown in the album list and on the album page.
-- `date` -- album date, used for sorting (newest first).
-- `description` -- description shown on the album page. Rendered as markdown to enable adding links and some formatting.
-- `weight` -- can be used to adjust sort order.
-- `params.featured_image` -- name of the image file used for the album thumbnail. If not set, the first image which contains `feature` in its filename is used, otherwise the first image in the album. (Deprecated, use `resources.params.cover`)
-- `params.private` -- if set to `true`, this album is not shown in the album overview and is excluded from RSS feeds.
-- `params.featured` -- if set to `true`, this album is featured on the homepage (even if private).
-- `params.sort_by` -- property used for sorting images in an album. Default is `Name` (filename), but can also be `Date`.
-- `params.sort_order` -- sort order. Default is `asc`.
-- `params.theme` -- color theme for this page. Defaults to `defaultTheme` from configuration.
+- `title` -- название альбома, отображаемое в списке альбомов и на странице альбома.
+- `date` -- дата альбома, используемая для сортировки (самая новая первая).
+- `description` -- описание, отображаемое на странице альбома. Отображается в формате Markdown, чтобы можно было добавлять ссылки и форматировать текст.
+- `weight` -- может использоваться для настройки порядка сортировки.
+- `params.featured_image` -- имя файла изображения, используемого для миниатюры альбома. Если не задано, используется первое изображение, содержащее `feature` в имени файла, в противном случае — первое изображение в альбоме. (Устарело, используйте `resources.params.cover`)
+- `params.private` -- если установлено значение  `true`, этот альбом не отображается в списке альбомов и исключается из RSS-каналов.
+- `params.featured` -- если установлено значение `true`, этот альбом отображается на главной странице (даже если он закрытый). , this album is featured on the homepage (even if private).
+- `params.sort_by` --  свойство, используемое для сортировки изображений в альбоме. По умолчанию используется`Name` (filename), в противном слечае`Date`.
+- `params.sort_order` -- порядок сортировки. Значение по умолчанию `asc`.
+- `params.theme` -- цветовая тема для этой страницы. По умолчанию используется значение `defaultTheme` из конфигурации.  
 
 ### Album Cover
 
