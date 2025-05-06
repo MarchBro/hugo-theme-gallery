@@ -1,6 +1,6 @@
-# Hugo Gallery Theme
+# Тема Hugo Галерея 
 
-A very simple and opinionated photo gallery theme for Hugo.
+Простая и коассная тема hugo
 
 - [Demo](https://nicokaiser.github.io/hugo-theme-gallery/)
 - [Example site source](https://github.com/nicokaiser/hugo-theme-gallery/tree/main/exampleSite)
